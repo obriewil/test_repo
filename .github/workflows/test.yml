@@ -35,10 +35,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Node.js dependencies
-        run: |
-          npm install  # assumes you have a package.json; remove if not needed
-
       - name: Run test.js
         run: |
           node test.js  # or `npm test` if using a test framework like Jest
