@@ -41,14 +41,14 @@ Make sure you have the following installed:
 - Git
 
 # Running the App
-1. Clone the repository
+## 1. Clone the repository
 
 git clone https://github.com/obriewil/CS467_WellnessAI.git
 
 cd CS467_WellnessAI
 
 
-2. Run the Frontend
+## 2. Run the Frontend
 
 cd frontend
 
@@ -56,10 +56,10 @@ npm install
 
 npm start
 
-*Runs on http://localhost:3000
+PORT: http://localhost:3000
 
 
-3. Run the Backend (FastAPI)
+## 3. Run the Backend (FastAPI)
 
 cd backend
 
@@ -71,16 +71,18 @@ pip install -r requirements.txt
 
 uvicorn main:app --reload
 
-* FastAPI will start at http://localhost:8000
+PORT: FastAPI will start at http://localhost:8000
 
 Make sure to set up your .env file with proper database and OpenAI API credentials.
 
 
-4. Run the AI Service (Benny-AI-Service)
+## 4. Run the AI Service (Benny-AI-Service)
 
 *This microservice interfaces with the OpenAI API and handles prompt generation and AI logic.
 
 cd benny-ai-service
+
+port: http://127.0.0.1:8001
 
 python -m venv venv
 
@@ -88,7 +90,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-python service.py
+cd src/api 
+
+python main.py
 
 *Ensure this service is running before backend operations that require LLM calls.
 
