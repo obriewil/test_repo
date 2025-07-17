@@ -143,7 +143,7 @@ James Liu – Frontend UI/UX & component development
 
 Michael Jagielski – Backend databases and data flow
 
-William O’Brien – DevOps, API integration, microservice orchestration
+William O’Brien – DevOps, Full Stack, Integration
 
 # License
 MIT License
