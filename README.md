@@ -78,21 +78,33 @@ Make sure to set up your .env file with proper database and OpenAI API credentia
 
 ## 4. Run the AI Service (Benny-AI-Service)
 
+### Create Virtual Environment (MacOS/Linux)
+cd benny-ai-service    
+
+python -m venv benny-env 
+
+source benny-env/bin/activate
+
+pip install -r requirements.txt 
+
+
+### Create Virtual Environment (Windows)
+cd benny-ai-service 
+
+python -m venv benny-env 
+
+benny-env\Scripts\activate 
+
+pip install -r requirements.txt 
+
 *This microservice interfaces with the OpenAI API and handles prompt generation and AI logic.
 
-cd benny-ai-service
-
-port: http://127.0.0.1:8001
-
-python -m venv venv
-
-source venv/bin/activate
-
-pip install -r requirements.txt
-
+### Run AI Service
 cd src/api 
 
 python main.py
+
+PORT: http://localhost:8001
 
 *Ensure this service is running before backend operations that require LLM calls.
 
