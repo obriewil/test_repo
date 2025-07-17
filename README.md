@@ -26,6 +26,10 @@ CS467_WellnessAI/
 
 |__ bennyDB/    # Database for storing user information and daily check ins
 
+|__ testing/    # Testing for individual features
+
+|__ tests.py & tests.js/    # Regression testing files for checking before merges
+
 
 # Prerequisites
 Make sure you have the following installed:
@@ -38,58 +42,92 @@ Make sure you have the following installed:
 
 # Running the App
 1. Clone the repository
+
 git clone https://github.com/obriewil/CS467_WellnessAI.git
+
 cd CS467_WellnessAI
 
+
 2. Run the Frontend
+
 cd frontend
+
 npm install
+
 npm start
+
 *Runs on http://localhost:3000
+
 
 3. Run the Backend (FastAPI)
 
 cd backend
+
 python -m venv venv
+
 source venv/bin/activate  # or venv\Scripts\activate on Windows
+
 pip install -r requirements.txt
+
 uvicorn main:app --reload
+
 * FastAPI will start at http://localhost:8000
 
 Make sure to set up your .env file with proper database and OpenAI API credentials.
 
+
 4. Run the AI Service (Benny-AI-Service)
-This microservice interfaces with the OpenAI API and handles prompt generation and AI logic.
+
+*This microservice interfaces with the OpenAI API and handles prompt generation and AI logic.
+
 cd benny-ai-service
+
 python -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt
+
 python service.py
-Ensure this service is running before backend operations that require LLM calls.
+
+*Ensure this service is running before backend operations that require LLM calls.
 
 # Environment Variables
 Set the following variables in each component's .env file:
 
 backend/.env
+
 DATABASE_URL=postgresql://user:password@localhost:5432/wellnessdb
+
 OPENAI_API_KEY=your-api-key
 
+
 benny-ai-service/.env
+
 OPENAI_API_KEY=your-api-key
+
 
 # Running Tests
 ** NEED TO FILL IN**
 
 # Tech Stack
+
 Frontend: React, Tailwind CSS, React Router
+
 Backend: FastAPI, PostgreSQL, SQLAlchemy
+
 AI Service: Python + OpenAI API
+
 Testing: **FILL IN** (frontend), Pytest (backend)
 
 # Team Members
+
 BriAnna Foreman – LLM integration, AI prompt engineering
+
 James Liu – Frontend UI/UX & component development
+
 Michael Jagielski – Backend databases and data flow
+
 William O’Brien – DevOps, API integration, microservice orchestration
 
 # License
