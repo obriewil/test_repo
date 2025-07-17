@@ -1,6 +1,8 @@
 # WellnessAI (CS467 Online Capstone)
-AI-driven wellness companion for holistic fitness, nutrition, and stress management.
-Built with a React frontend, FastAPI backend, and LLM integration for intelligent, personalized support.
+WellnessAI is a web-based application that empowers users to take control of their health through personalized, goal-driven guidance across fitness, nutrition, and stress management. By combining intelligent habit tracking with natural language support from a large language model (LLM), the app acts as a virtual wellness coach—offering daily encouragement, progress insights, and adaptive planning based on the user's evolving goals.
+
+Unlike traditional health apps that isolate one aspect of wellness, WellnessAI blends goal prioritization, AI recommendations, and an intuitive user interface to promote long-term engagement and real, sustainable change.
+
 
 # Project Overview
 WellnessAI is a full-stack wellness web application designed to help users set and achieve personalized goals across nutrition, fitness, and stress management domains. The app uses an LLM (via OpenAI's API) to deliver daily affirmations, intelligent planning, goal recommendations, and conversational support based on user progress and preferences.
@@ -15,10 +17,14 @@ Key Features Include:
 
 # Project Structure
 CS467_WellnessAI/
-├── frontend/            # React-based UI
-├── backend/             # FastAPI backend
-└── benny-ai-service/    # Microservice that handles OpenAI LLM interactions
-└── benny-ai-service/    # Microservice that handles OpenAI LLM interactions
+
+|__ frontend/            # React-based UI
+
+|__ backend/             # FastAPI backend
+
+|__ benny-ai-service/    # Microservice that handles OpenAI LLM interactions
+
+|__ benny-ai-service/    # Microservice that handles OpenAI LLM interactions
 
 
 # Prerequisites
