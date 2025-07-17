@@ -108,20 +108,6 @@ PORT: http://localhost:8001
 
 *Ensure this service is running before backend operations that require LLM calls.
 
-# Environment Variables
-Set the following variables in each component's .env file:
-
-backend/.env
-
-DATABASE_URL=postgresql://user:password@localhost:5432/wellnessdb
-
-OPENAI_API_KEY=your-api-key
-
-
-benny-ai-service/.env
-
-OPENAI_API_KEY=your-api-key
-
 
 # Running Tests
 ** NEED TO FILL IN**
@@ -147,7 +133,7 @@ Michael Jagielski – Backend databases and data flow
 William O’Brien – DevOps, API integration, microservice orchestration
 
 # License
-MIT License. See LICENSE file for more details.
+MIT License
 
 # Contact
 For inquiries or contributions, feel free to open an issue or contact any team member.
