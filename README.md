@@ -24,11 +24,12 @@ CS467_WellnessAI/
 
 |__ benny-ai-service/    # Microservice that handles OpenAI LLM interactions
 
-|__ benny-ai-service/    # Microservice that handles OpenAI LLM interactions
+|__ bennyDB/    # Database for storing user information and daily check ins
 
 
 # Prerequisites
 Make sure you have the following installed:
+
 - Node.js
 - Python 3.9+
 - PostgreSQL
