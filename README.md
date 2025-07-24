@@ -50,14 +50,13 @@ cd CS467_WellnessAI
 
 ## 2. Run the Frontend
 
-cd frontend
+cd benny-frontend
 
 npm install
 
-npm start
+npm run dev
 
-PORT: http://localhost:3000
-
+PORT: http://localhost:5173
 
 ## 3. Run the Backend (FastAPI)
 
