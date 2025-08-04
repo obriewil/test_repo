@@ -2,12 +2,9 @@ name: BennyDB Unit Tests
 
 on:
   push:
-    paths:
-      - 'bennyDB/**'
-      - '.github/workflows/bennydb-test.yml'
+    branches: [ main ]
   pull_request:
-    paths:
-      - 'bennyDB/**'
+    branches: [ main ]
 
 jobs:
   run-tests:
