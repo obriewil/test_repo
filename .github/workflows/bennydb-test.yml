@@ -35,7 +35,7 @@ jobs:
       - name: Run pytest
         working-directory: ./bennyDB
         run: |
-          pytest test_bennyDB.py
+          pytest -v test_bennyDB.py
 
       - name: Remove BennyDB.sqlite3
         if: always()  # ensures it runs even if tests fail
