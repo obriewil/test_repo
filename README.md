@@ -121,7 +121,7 @@ PORT: http://localhost:8001
 *Ensure this service is running before backend operations that require LLM calls.
 
 
-# Running Tests
+# Testing Setup
 
 This project includes automated testing for both the AI service and database components.
 
@@ -152,6 +152,7 @@ python -m unittest test_benny.py
 cd bennyDB
 pytest -v test_bennyDB.py
 ```
+
 
 # Tech Stack
 
