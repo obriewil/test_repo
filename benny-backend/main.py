@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 from config import SECRET_KEY
 from routers import auth, users
+import httpx
 
 # add bennyDB directory to Python path
 bennydb_path = Path(__file__).parent.parent/"bennyDB"
@@ -92,10 +93,31 @@ async def submit_checkin(submission: CheckInSubmission):
         
         print(f"Saved to database")
 
+        # Call AI for recommendation
+        benny_recommendation = None
+        try:
+            import httpx
+
+            async with httpx.AsyncClient() as client:
+                ai_response = await client.post(
+                    "http://127.0.0.1:8001/recommend",
+                    json={"daily_checkin": checkin_data},
+                    timeout=30.0
+                )
+
+                if ai_response.status_code == 200:
+                    ai_data = ai_response.json()
+                    if ai_data.get("success"):
+                        benny_recommendation = ai_data.get("response")
+
+        except Exception:
+            pass    # continue without rec iv AI service fails
+
         return {
             "success": True,
             "message": "Check-in saved!",
-            "data": checkin_data
+            "data": checkin_data,
+            "recommendation": benny_recommendation
         }
         
     except Exception as e:
@@ -104,13 +126,23 @@ async def submit_checkin(submission: CheckInSubmission):
     
 @app.get("/api/chat/recent")
 async def get_recent_chat_messages():
-    """Get the last 10 recent chat messages"""
+#
+# async def get_recent_chat_messages(current_user: dict = Depends(users.get_current_user)):
+#
+    """
+    Get the last 10 recent chat messages
+    """
 
     if not db:
         raise HTTPException(status_code=500, detail="Database not connected")
     
+    # Add this in to query individual user history
+    # user_id = current_user['user']['sub']
+    # print(f"Fetching chat history for user: {user_id}")
+    
     try:
         # get database chat history
+        # -- WHERE ch.user_id = ?  <-- Something like this needs to be added to separate user history
         query = """
         SELECT
             che.sequence_number,
@@ -123,6 +155,8 @@ async def get_recent_chat_messages():
         LIMIT 10
         """
 
+        # result = db.run_query(query, user_id) 
+        # The query would need the user_id
         result = db.run_query(query)
         messages = result.fetchall()
 
